@@ -1,24 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { YOUTUBE_VIDEOS_API } from "../utils/constants";
 import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
+import { useGetVideosFromApi } from "../utils/useGetVideosFromApi";
+import ButtonList from "./ButtonList";
 
 const VideoContainer = () => {
-  const [videos, setVideos] = useState([]);
 
-  useEffect(() => {
-    getVideos();
-  }, []);
+  const videos = useGetVideosFromApi();
 
-  const getVideos = async () => {
-    const data = await fetch(YOUTUBE_VIDEOS_API);
-    const json = await data.json();
-    setVideos(json.items);
-  };
   return (
+    <>
+    <ButtonList/>
     <div
       id="videoContainer"
-      className=" grid  grid-cols-6 md:grid-cols-5 gap-9 mt-8"
+      className=" grid grid-cols-6 md:grid-cols-3 lg:grid-cols-5 min-[320px]:grid-cols-2 gap-9 mt-5"
     >
       {videos.map((video) => (
         <Link to={"/watch?v=" + video.id} key={video.id}>
@@ -26,6 +20,7 @@ const VideoContainer = () => {
         </Link>
       ))}
     </div>
+    </>
   );
 };
 

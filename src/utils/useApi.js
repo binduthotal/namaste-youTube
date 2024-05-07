@@ -16,7 +16,6 @@ export const useApi = (id) => {
             GOOGLE_API_KEY
         );
         const json = await data.json();
-        console.log(json);
         setVideoById(json.items[0]);
     };
     return videoById;

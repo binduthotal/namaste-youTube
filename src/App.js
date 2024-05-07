@@ -5,20 +5,34 @@ import Header from "./components/Header";
 import Error from "./components/Error";
 import MainContainer from "./components/MainContainer";
 import WatchVideoContainer from "./components/WatchVideoContainer";
+import SearchFilterContainer from "./components/SearchFilterContainer";
 import store from "./utils/store";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import VideoContainer from "./components/VideoContainer";
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <Body />,
+    element: <Layout />,
     children: [
-      { path: "/", element: <MainContainer /> },
-      { path: "watch", element: <WatchVideoContainer /> },
+      {
+        path: "/",
+        element: <Body />,
+        children: [
+          {
+            path: "/",
+            element: <MainContainer />,
+            children: [
+              { path: "/", element: <VideoContainer /> },
+              { path: "/watch", element: <WatchVideoContainer /> },
+              { path: "/results", element: <SearchFilterContainer /> },
+            ],
+          },
+        ],
+      },
     ],
-    errorElement:<Error/>
+    errorElement: <Error />,
   },
-  
 ]);
 
 function App() {
@@ -36,11 +50,17 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div>
-        <Header />
-        <RouterProvider router={appRouter} />
-      </div>
+      <RouterProvider router={appRouter}></RouterProvider>
     </Provider>
+  );
+}
+
+function Layout() {
+  return (
+    <div>
+      <Header />
+      <Outlet />
+    </div>
   );
 }
 

@@ -1,12 +1,11 @@
 import React from 'react';
-import ButtonList from './ButtonList';
-import VideoContainer from './VideoContainer';
+import { Outlet } from 'react-router-dom';
 
 const MainContainer = () => {
   return (
-    <div className=''>
-      <ButtonList/>
-      <VideoContainer/>
+      
+    <div className="col-span-11 mb-8">
+      <Outlet/>
     </div>
   );
 }
