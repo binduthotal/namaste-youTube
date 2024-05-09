@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/sideBarSlice";
 import { useSearchParams } from "react-router-dom";
 import { useApi } from "../utils/useApi";
 import { useDaysElapsed } from "../utils/useDaysElapsed";
 import CommentsContainer from "./CommentsContainer";
 import { clearFilter } from "../utils/filterSearchSlice";
+import LiveChatContainer from "./LiveChatContainer";
 
 const WatchVideoContainer = () => {
     const [videoId] = useSearchParams();
@@ -40,16 +41,12 @@ const WatchVideoContainer = () => {
         }
     };
 
-    // if(filteredVideos.videos.length > 0) return <MainContainer/>
-
     return (
-        <div id="watchContainer" className="px-8 mb-8">
+        <div id="watchContainer" className="mb-8">
             <div className="ml-5 pr-5 relative mt-8 grid grid-cols-12 gap-5  mb-8">
-                <div className="col-span-9">
+                <div className="col-span-8">
                     <iframe
-                        className="rounded-lg  w-full md:h-[400px] sm:h-[350px]"
-                        // width="1100"
-                        // height="650"
+                        className="rounded-lg w-full lg:h-[600px]  md:h-[450px] sm:h-[350px]"
                         src={"https://www.youtube.com/embed/" + videoId.get("v")}
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -123,7 +120,8 @@ const WatchVideoContainer = () => {
                     </div>
                     <CommentsContainer />
                 </div>
-                <div className="col-span-3">
+                <div className="col-span-4">
+                    <LiveChatContainer/>
                     <h1 className="text-center font-bold">Auto Suggestions</h1>
                 </div>
             </div>

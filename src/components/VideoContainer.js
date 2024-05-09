@@ -12,10 +12,10 @@ const VideoContainer = () => {
     <ButtonList/>
     <div
       id="videoContainer"
-      className=" grid grid-cols-6 md:grid-cols-3 lg:grid-cols-5 min-[320px]:grid-cols-2 gap-9 mt-5"
+      className=" grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 min-[320px]:grid-cols-2 gap-5 mt-5"
     >
       {videos.map((video) => (
-        <Link to={"/watch?v=" + video.id} key={video.id}>
+        <Link className="w-fit" to={"/watch?v=" + video.id} key={video.id}>
           <VideoCard info={video} />
         </Link>
       ))}

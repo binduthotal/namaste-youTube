@@ -15,7 +15,7 @@ const SideBar = () => {
     dispatch(clearFilter());
   }
   return (
-    <div className="col-span-1 bg-white w-fit">
+    <div className="col-span-1  w-fit">
       <div className="py-2">
         <ul>
           <li className="p-1 cursor-pointer">
@@ -26,7 +26,7 @@ const SideBar = () => {
           <li className="p-1 cursor-pointer">Live</li>
         </ul>
       </div>
-      <hr className=""></hr>
+      <hr className="w-fit"></hr>
       <div className="py-2">
         <h1 className="font-bold text-lg p-1">Subscriptions</h1>
         <ul>
@@ -36,7 +36,7 @@ const SideBar = () => {
           <li className="p-1 cursor-pointer">Movies</li>
         </ul>
       </div>
-      <hr className=""></hr>
+      <hr className="w-fit"></hr>
       <div className="py-2">
         <h1 className="font-bold text-lg p-1">Watch Later</h1>
         <ul>

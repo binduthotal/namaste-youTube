@@ -87,6 +87,8 @@ export const commentsData = [
     },
 ];
 
+export const OFFSET_LIVE_CHAT_COUNT = 10;
+
 const GOOGLE_API_KEY = "AIzaSyApNATN77n93SeEl45cxrx0l2APVvtAI8k";
 
 export const YOUTUBE_VIDEOS_API =

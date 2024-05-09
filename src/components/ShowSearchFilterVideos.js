@@ -10,7 +10,7 @@ const ShowSearchFilterVideos = ({ info }) => {
     return (
         <div className="m-auto mt-8  mb-8  flex justify-center">
             <img
-                className="w-1/4 rounded-xl"
+                className="w-1/3 rounded-xl"
                 src={thumbnails?.maxres?.url}
                 alt="video"
             />

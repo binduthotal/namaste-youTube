@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/sideBarSlice";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { cacheSearchResults } from "../utils/searchSlice";
+import { toggleDarkMode } from "../utils/darkModeSlice";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -10,6 +11,7 @@ const Header = () => {
     const [searchSuggestions, setSearchSuggestions] = useState([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
     const dispatch = useDispatch();
+    const isDarkTheme = useSelector((store) => store.darkMode.isDark);
     /**
      * searchCache = {
      *  "iPhone" : ["iPhone11", "iPhone8", "iPhone"]
@@ -72,8 +74,18 @@ const Header = () => {
         setShowSuggestions(false);
     };
 
+    const handleDarkMode = () => {
+        dispatch(toggleDarkMode());
+    };
+
     return (
-        <div className="flex w-[100%] justify-between items-center p-2 fixed bg-white z-20 top-0">
+        <div
+            className={
+                isDarkTheme
+                    ? "flex w-[100%] justify-between items-center p-2 fixed bg-gray-900 text-white z-20 top-0"
+                    : "flex w-[100%] justify-between items-center p-2 fixed bg-white z-20 top-0"
+            }
+        >
             <div className="flex items-center px-5">
                 <img
                     className="h-8 mr-4 cursor-pointer"
@@ -130,12 +142,18 @@ const Header = () => {
                     </div>
                 )}
             </div>
-            <div>
+            <div className="flex mr-5">
                 <img
                     alt="user"
                     className="cursor-pointer px-5 h-8"
                     src="https://e7.pngegg.com/pngimages/178/595/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black-thumbnail.png"
                 />
+                <button
+                    className="rounded-xl px-2 bg-black text-white"
+                    onClick={handleDarkMode}
+                >
+                    Dark Mode
+                </button>
             </div>
         </div>
     );

@@ -1,4 +1,4 @@
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import "./App.css";
 import Body from "./components/Body";
 import Header from "./components/Header";
@@ -9,6 +9,7 @@ import SearchFilterContainer from "./components/SearchFilterContainer";
 import store from "./utils/store";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import VideoContainer from "./components/VideoContainer";
+import DemoAboutUseMeno from "./components/DemoAboutUseMeno";
 
 const appRouter = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ const appRouter = createBrowserRouter([
               { path: "/", element: <VideoContainer /> },
               { path: "/watch", element: <WatchVideoContainer /> },
               { path: "/results", element: <SearchFilterContainer /> },
+              { path: "/demo", element: <DemoAboutUseMeno /> },
             ],
           },
         ],
@@ -56,8 +58,10 @@ function App() {
 }
 
 function Layout() {
+
+  const isDarkTheme = useSelector(store=>store.darkMode.isDark)
   return (
-    <div>
+    <div className={isDarkTheme ? "bg-gray-900 text-white" : undefined}>
       <Header />
       <Outlet />
     </div>
