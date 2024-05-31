@@ -2,15 +2,15 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/sideBarSlice";
 import { useSearchParams } from "react-router-dom";
-import { useApi } from "../utils/useApi";
 import { useDaysElapsed } from "../utils/useDaysElapsed";
 import CommentsContainer from "./CommentsContainer";
 import { clearFilter } from "../utils/filterSearchSlice";
 import LiveChatContainer from "./LiveChatContainer";
+import { useGetVideoByIdApi } from "../utils/useVideoByIdApi";
 
 const WatchVideoContainer = () => {
     const [videoId] = useSearchParams();
-    const video = useApi(videoId.get("v"));
+    const video = useGetVideoByIdApi(videoId.get("v"));
     const dispatch = useDispatch();
 
     useEffect(() => {

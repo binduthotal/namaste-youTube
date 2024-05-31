@@ -8,11 +8,6 @@ export const btnList = [
     "Movies",
     "Indian cusine",
     "News",
-    "New to you",
-    "Featured",
-    "Tending",
-    "Telugu cinema",
-    "Tamil cinema",
 ];
 
 export const commentsData = [
@@ -89,11 +84,17 @@ export const commentsData = [
 
 export const OFFSET_LIVE_CHAT_COUNT = 10;
 
-const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+export const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
 export const YOUTUBE_VIDEOS_API =
-  "https://crossorigin.me/https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" +
-  GOOGLE_API_KEY;
+    "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" +
+    GOOGLE_API_KEY;
 
-export const YOUTUBE_SEARCH_API =
+export const GET_VIDEO_BY_ID =
+    "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=";
+
+export const YOUTUBE_SEARCH_SUGGESTION_API =
     "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+
+
+export const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
