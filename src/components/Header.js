@@ -53,7 +53,7 @@ const Header = () => {
   }, [searchQuery]);
 
   const url =
-    CORS_PROXY +
+    "https://thingproxy.freeboard.io/fetch/" +
     YOUTUBE_SEARCH_SUGGESTION_API +
     encodeURIComponent(searchQuery);
 
