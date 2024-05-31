@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/sideBarSlice";
-import { YOUTUBE_SEARCH_SUGGESTION_API } from "../utils/constants";
+import { CORS_PROXY, YOUTUBE_SEARCH_SUGGESTION_API } from "../utils/constants";
 import { cacheSearchResults } from "../utils/searchSlice";
 import { toggleDarkMode } from "../utils/darkModeSlice";
 import { Link } from "react-router-dom";
@@ -53,6 +53,7 @@ const Header = () => {
   }, [searchQuery]);
 
   const url =
+   CORS_PROXY +
     YOUTUBE_SEARCH_SUGGESTION_API +
     encodeURIComponent(searchQuery);
 
