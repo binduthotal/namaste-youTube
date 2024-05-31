@@ -9,8 +9,9 @@ export const useGetVideosFromApi = () => {
   }, []);
 
   const getVideos = async () => {
-    const data = await fetch(YOUTUBE_VIDEOS_API);
-    // const data = await fetch(YOUTUBE_VIDEOS_API);
+    const data = await fetch(
+      "https://thingproxy.freeboard.io/fetch/" + YOUTUBE_VIDEOS_API
+    );
     const json = await data.json();
     setVideos(json.items);
   };
