@@ -8,13 +8,13 @@ const ShowSearchFilterVideos = ({ info }) => {
     const daysElpased = useDaysElapsed(publishedAt);
 
     return (
-        <div className="m-auto mt-8  mb-8  flex justify-center">
+        <div className="m-auto mt-8  mb-8  md:flex justify-center">
             <img
-                className="w-1/3 rounded-xl"
+                className="md:w-1/3 rounded-xl"
                 src={thumbnails?.maxres?.url}
                 alt="video"
             />
-            <div className="pl-5 w-1/3">
+            <div className="pl-5 md:w-1/3">
                 <ul>
                     <li className="font-semibold text-lg text-wrap">{title}</li>
                     <li className="text-gray-600 font-semibold text-sm">

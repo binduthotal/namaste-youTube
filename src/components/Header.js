@@ -53,12 +53,12 @@ const Header = () => {
     }, [searchQuery]);
 
     const getSuggestions = async () => {
-        const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
-        const json = await data.json();
-        setSearchSuggestions(json[1]);
+            const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+            const json = await data.json();
+            setSearchSuggestions(json[1]);
 
-        // Update Cache slice
-        dispatch(cacheSearchResults({ [searchQuery]: json[1] }));
+            // Update Cache slice
+            dispatch(cacheSearchResults({ [searchQuery]: json[1] }));
     };
 
     const handleSideBar = () => {

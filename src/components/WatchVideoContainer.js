@@ -44,7 +44,7 @@ const WatchVideoContainer = () => {
     return (
         <div id="watchContainer" className="mb-8">
             <div className="ml-5 pr-5 relative mt-8 grid grid-cols-12 gap-5  mb-8">
-                <div className="col-span-8">
+                <div className="md:col-span-8 col-span-12">
                     <iframe
                         className="rounded-lg w-full lg:h-[600px]  md:h-[450px] sm:h-[350px]"
                         src={"https://www.youtube.com/embed/" + videoId.get("v")}
@@ -120,7 +120,7 @@ const WatchVideoContainer = () => {
                     </div>
                     <CommentsContainer />
                 </div>
-                <div className="col-span-4">
+                <div className="md:col-span-4 col-span-12">
                     <LiveChatContainer/>
                     <h1 className="text-center font-bold">Auto Suggestions</h1>
                 </div>
